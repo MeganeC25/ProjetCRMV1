@@ -21,7 +21,6 @@ public class Panier {
 	
 	
 	
-	
 	/*Getters Setters*/
 	public Long getId() {
 		return id;
@@ -36,4 +35,8 @@ public class Panier {
 		this.client = client;
 	}
 
+	@Override
+	public String toString() {
+		return "id: " + id + "; client: " + client.toString();
+	}
 }

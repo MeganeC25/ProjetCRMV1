@@ -71,4 +71,11 @@ public class Paiement {
 	public void setClient(Client client) {
 		this.client = client;
 	}
+
+	@Override
+	public String toString() {
+		return "id: " + id + "; numéro de carte: " + numCarte + "; code confidentiel: " + codeConf + "; banque: " + banque + "; client: " + client.toString();
+	}
+	
+	
 }

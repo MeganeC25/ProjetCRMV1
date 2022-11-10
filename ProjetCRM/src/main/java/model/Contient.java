@@ -18,6 +18,8 @@ public class Contient {
 		this.panier = panier;
 	}
 	
+
+
 	public Contient(Produit produit, Panier panier) {
 		this.produit = produit;
 		this.panier = panier;
@@ -45,7 +47,11 @@ public class Contient {
 		this.panier = panier;
 	}
 	
-
+	
+	@Override
+	public String toString() {
+		return "id: " + id + "; produit: " + produit.toString() + "; panier: " + panier.toString();
+	}
 	
 	
 }
