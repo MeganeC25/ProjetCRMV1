@@ -5,6 +5,7 @@ public class Client {
 	private Long id;
 	private String nom;
 	private String prenom;
+	private String mail;
 	private String nomSociete;
 	private String telephone;
 	private int etat;
@@ -17,10 +18,11 @@ public class Client {
 	public Client() {
 	}
 	
-	public Client(Long id, String nom, String prenom, String nomSociete, String telephone, int etat, int genre, Adresse adresse) {
+	public Client(Long id, String nom, String prenom, String mail, String nomSociete, String telephone, int etat, int genre, Adresse adresse) {
 		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
+		this.mail = mail;
 		this.nomSociete = nomSociete;
 		this.telephone = telephone;
 		this.etat = etat;
@@ -28,9 +30,10 @@ public class Client {
 		this.adresse = adresse;
 	}
 	
-	public Client(String nom, String prenom, String nomSociete, String telephone,  Adresse adresse) {
+	public Client(String nom, String prenom, String mail, String nomSociete, String telephone,  Adresse adresse) {
 		this.nom = nom;
 		this.prenom = prenom;
+		this.mail = mail;
 		this.nomSociete = nomSociete;
 		this.telephone = telephone;
 		this.adresse = adresse;
@@ -56,6 +59,13 @@ public class Client {
 	}
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
+	}
+	
+	public String getMail() {
+		return mail;
+	}
+	public void setMail(String mail) {
+		this.mail = mail;
 	}
 	public String getNomSociete() {
 		return nomSociete;
@@ -91,6 +101,6 @@ public class Client {
 
 	@Override
 	public String toString() {
-		return "id: " + id + "; nom: " + nom + "; prénom: " + prenom + "; nom société: " + nomSociete + "; telephone: " + telephone + "; etat: " + etat + "; genre: " + genre + "; adresse: " + adresse.toString();
+		return "id: " + id + "; nom: " + nom + "; prénom: " + prenom + "; mail: " + mail + "; nom société: " + nomSociete + "; telephone: " + telephone + "; etat: " + etat + "; genre: " + genre + "; adresse: " + adresse.toString();
 	}
 }
