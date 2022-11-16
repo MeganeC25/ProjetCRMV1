@@ -11,96 +11,109 @@ public class Client {
 	private int etat;
 	private int genre;
 	private Adresse adresse;
-	
-	
-	
-	/*Constructeurs*/
+
 	public Client() {
 	}
-	
-	public Client(Long id, String nom, String prenom, String mail, String nomSociete, String telephone, int etat, int genre, Adresse adresse) {
-		this.id = id;
-		this.nom = nom;
-		this.prenom = prenom;
-		this.mail = mail;
-		this.nomSociete = nomSociete;
-		this.telephone = telephone;
-		this.etat = etat;
-		this.genre = genre;
-		this.adresse = adresse;
-	}
-	
-	public Client(String nom, String prenom, String mail, String nomSociete, String telephone,  Adresse adresse) {
-		this.nom = nom;
-		this.prenom = prenom;
-		this.mail = mail;
-		this.nomSociete = nomSociete;
-		this.telephone = telephone;
-		this.adresse = adresse;
-	}
-	
 
+	public Client(Long id, String nom, String prenom, String mail, String nomSociete, String telephone, int etat,
+			int genre, Adresse adresse) {
+		this.setId(id);
+		this.setNom(nom);
+		this.setPrenom(prenom);
+		this.setMail(mail);
+		this.setNomSociete(nomSociete);
+		this.setTelephone(telephone);
+		this.setEtat(etat);
+		this.setGenre(genre);
+		this.setAdresse(adresse);
+	}
 
-	/*Getters Setters */
+	public Client(String nom, String prenom, String mail, String nomSociete, String telephone, Adresse adresse) {
+		this.setNom(nom);
+		this.setPrenom(prenom);
+		this.setMail(mail);
+		this.setNomSociete(nomSociete);
+		this.setTelephone(telephone);
+		this.setEtat(etat);
+		this.setGenre(genre);
+		this.setAdresse(adresse);
+	}
+
+	/* Getters Setters */
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public String getNom() {
 		return nom;
 	}
+
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+
 	public String getPrenom() {
 		return prenom;
 	}
+
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-	
+
 	public String getMail() {
 		return mail;
 	}
+
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
+
 	public String getNomSociete() {
 		return nomSociete;
 	}
+
 	public void setNomSociete(String nomSociete) {
 		this.nomSociete = nomSociete;
 	}
+
 	public String getTelephone() {
 		return telephone;
 	}
+
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
+
 	public int getEtat() {
 		return etat;
 	}
+
 	public void setEtat(int etat) {
 		this.etat = etat;
 	}
+
 	public int getGenre() {
 		return genre;
 	}
+
 	public void setGenre(int genre) {
 		this.genre = genre;
 	}
+
 	public Adresse getAdresse() {
 		return adresse;
 	}
+
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
 	}
 
-
 	@Override
 	public String toString() {
-		return "id: " + id + "; nom: " + nom + "; prénom: " + prenom + "; mail: " + mail + "; nom société: " + nomSociete + "; telephone: " + telephone + "; etat: " + etat + "; genre: " + genre + "; adresse: " + adresse.toString();
+		return "[" + this.getId() + "] " + this.getNomSociete() + " - " + this.getMail() + " - " + this.getNom() + " " + this.getPrenom() + " - " + this.telephone + " - " + this.getEtat() + " - " + this.getGenre() + " - " + adresse.toString();
 	}
 }

@@ -3,34 +3,29 @@ package model;
 public class Paiement {
 
 	private Long id;
-	private String numCarte;
-	private String codeConf;
+	private int numCarte;
+	private int codeConf;
 	private String banque;;
 	private Client client;
 
-	
-	
-	/*Constructeurs*/
 	public Paiement() {
 	}
-	
-	public Paiement(Long id, String numCarte, String codeConf, String banque, Client client) {
-		this.id = id;
-		this.numCarte = numCarte;
-		this.codeConf = codeConf;
-		this.banque = banque;
-		this.client = client;
+
+	public Paiement(Long id, int numCarte, int codeConf, String banque, Client client) {
+		this.setId(id);
+		this.setNumCarte(numCarte);
+		this.setCodeConf(codeConf);
+		this.setBanque(banque);
+		this.setClient(client);
 	}
-	
-	public Paiement(String numCarte, String codeConf, String banque, Client client) {
-		this.numCarte = numCarte;
-		this.codeConf = codeConf;
-		this.banque = banque;
-		this.client = client;
+
+	public Paiement(int numCarte, int codeConf, String banque, Client client) {
+		this.setNumCarte(numCarte);
+		this.setCodeConf(codeConf);
+		this.setBanque(banque);
+		this.setClient(client);
 	}
-	
-	
-	
+
 	/* Getters Setters */
 	public Long getId() {
 		return id;
@@ -40,19 +35,19 @@ public class Paiement {
 		this.id = id;
 	}
 
-	public String getNumCarte() {
+	public int getNumCarte() {
 		return numCarte;
 	}
 
-	public void setNumCarte(String numCarte) {
+	public void setNumCarte(int numCarte) {
 		this.numCarte = numCarte;
 	}
 
-	public String getCodeConf() {
+	public int getCodeConf() {
 		return codeConf;
 	}
 
-	public void setCodeConf(String codeConf) {
+	public void setCodeConf(int codeConf) {
 		this.codeConf = codeConf;
 	}
 
@@ -74,8 +69,7 @@ public class Paiement {
 
 	@Override
 	public String toString() {
-		return "id: " + id + "; numéro de carte: " + numCarte + "; code confidentiel: " + codeConf + "; banque: " + banque + "; client: " + client.toString();
+		return "[" + id + "] " + this.getNumCarte() + " - " + this.getCodeConf() + " - " + this.getBanque()	+ " - "+ client.toString();
 	}
-	
-	
+
 }
