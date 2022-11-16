@@ -1,1 +1,16 @@
 *.class
+/.metadata/
+
+
+
+# Compiled class file
+*.class
+
+
+
+
+
+# Package Files #
+*.jar
+ProjetCRM/src/main/java/dao/DaoParam.java
+ProjetCRM/.classpath
