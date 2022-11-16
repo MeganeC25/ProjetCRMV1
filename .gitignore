@@ -12,3 +12,4 @@
 # Package Files #
 *.jar
 ProjetCRM/src/main/java/dao/DaoParam.java
+ProjetCRM/.classpath
