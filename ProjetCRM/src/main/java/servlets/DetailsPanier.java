@@ -7,20 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.DaoException;
 import dao.DaoFactory;
-import dao.ProduitDao;
 
 /**
- * Servlet implementation class ListProduits
+ * Servlet implementation class DetailsPanier
  */
-@WebServlet("/listProduits")
-public class ListProduits extends HttpServlet {
+@WebServlet("/detailsPanier")
+public class DetailsPanier extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ListProduits() {
+    public DetailsPanier() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,20 +29,16 @@ public class ListProduits extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ProduitDao produitDao = DaoFactory.getInstance().getProduitDao();
-        
-        try {
-        	request.setAttribute("listProduits", produitDao.lister());
-        } catch(Exception e) {
-        	e.printStackTrace();
-        	request.getSession().removeAttribute("messageProduit");
-			response.sendRedirect(request.getContextPath());
+		try {
+			long id = Long.parseLong(request.getParameter("id"));
+			request.setAttribute("panier", DaoFactory.getInstance().getPanierDao().trouver(id));
+		} catch (DaoException e) {
+			e.printStackTrace();
+			request.getSession().setAttribute("messagePanier", "Panier inconnu ou identifiant incorrect !");
+			response.sendRedirect(request.getContextPath() + "/listPaniers");
 			return;
-        }
-		
-		this.getServletContext().getRequestDispatcher("/WEB-INF/listProduits.jsp").forward(request, response);
-		
-		request.getSession().removeAttribute("messageProduit");
+		}
+		this.getServletContext().getRequestDispatcher("/WEB-INF/detailsPanier.jsp").forward(request, response);
 	}
 
 	/**

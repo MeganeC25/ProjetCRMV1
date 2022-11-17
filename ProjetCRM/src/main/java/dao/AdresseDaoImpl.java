@@ -67,7 +67,7 @@ public class AdresseDaoImpl implements AdresseDao {
 		adresse.setRue(resultSet.getString("rue"));
 		adresse.setVille(resultSet.getString("ville"));
 		adresse.setPays(resultSet.getString("pays"));
-		adresse.setCodePostal(resultSet.getString("id"));
+		adresse.setCodePostal(resultSet.getString("code_postal"));
 		return adresse;
 	}
 

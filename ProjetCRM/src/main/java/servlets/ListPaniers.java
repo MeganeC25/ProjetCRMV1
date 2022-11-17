@@ -8,19 +8,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.DaoFactory;
-import dao.ProduitDao;
 
 /**
- * Servlet implementation class ListProduits
+ * Servlet implementation class ListPaniers
  */
-@WebServlet("/listProduits")
-public class ListProduits extends HttpServlet {
+@WebServlet("/listPaniers")
+public class ListPaniers extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ListProduits() {
+    public ListPaniers() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,20 +28,19 @@ public class ListProduits extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ProduitDao produitDao = DaoFactory.getInstance().getProduitDao();
-        
+                
         try {
-        	request.setAttribute("listProduits", produitDao.lister());
+        	request.setAttribute("listPaniers", DaoFactory.getInstance().getPanierDao().lister());
         } catch(Exception e) {
         	e.printStackTrace();
-        	request.getSession().removeAttribute("messageProduit");
+        	request.getSession().removeAttribute("messagePanier");
 			response.sendRedirect(request.getContextPath());
 			return;
         }
 		
-		this.getServletContext().getRequestDispatcher("/WEB-INF/listProduits.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/listPaniers.jsp").forward(request, response);
 		
-		request.getSession().removeAttribute("messageProduit");
+		request.getSession().removeAttribute("messagePanier");
 	}
 
 	/**
@@ -50,7 +48,6 @@ public class ListProduits extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }

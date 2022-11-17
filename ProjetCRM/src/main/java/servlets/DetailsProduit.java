@@ -7,20 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.DaoException;
 import dao.DaoFactory;
-import dao.ProduitDao;
 
 /**
- * Servlet implementation class ListProduits
+ * Servlet implementation class DetailsProduit
  */
-@WebServlet("/listProduits")
-public class ListProduits extends HttpServlet {
+@WebServlet("/detailsProduit")
+public class DetailsProduit extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ListProduits() {
+    public DetailsProduit() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,20 +29,13 @@ public class ListProduits extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ProduitDao produitDao = DaoFactory.getInstance().getProduitDao();
-        
-        try {
-        	request.setAttribute("listProduits", produitDao.lister());
-        } catch(Exception e) {
-        	e.printStackTrace();
-        	request.getSession().removeAttribute("messageProduit");
-			response.sendRedirect(request.getContextPath());
-			return;
-        }
-		
-		this.getServletContext().getRequestDispatcher("/WEB-INF/listProduits.jsp").forward(request, response);
-		
-		request.getSession().removeAttribute("messageProduit");
+		try {
+			long id = Long.parseLong(request.getParameter("id"));
+			request.setAttribute("produit", DaoFactory.getInstance().getProduitDao().trouver(id));
+		} catch (DaoException e) {
+			e.printStackTrace();
+		}
+		this.getServletContext().getRequestDispatcher("/WEB-INF/detailsProduit.jsp").forward(request, response);
 	}
 
 	/**
