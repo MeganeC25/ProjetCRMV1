@@ -22,14 +22,12 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${ adresses }" var="adresse">
 				<tr>
-					<td><c:out value="${ adresses.rue}" /></td>
-					<td><c:out value="${ adresses.ville}" /></td>
-					<td><c:out value="${ adresses.pays}" /></td>
-					<td><c:out value="${ adresses.codePostal}" /></td>
+					<td><c:out value="${ adresse.rue}" /></td>
+					<td><c:out value="${ adresse.ville}" /></td>
+					<td><c:out value="${ adresse.pays}" /></td>
+					<td><c:out value="${ adresse.codePostal}" /></td>
 					
 				</tr>
-			</c:forEach>
 		</tbody>
 	</table>

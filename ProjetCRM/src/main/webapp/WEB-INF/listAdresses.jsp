@@ -28,17 +28,17 @@
 		<tbody>
 			<c:forEach items="${ adresses }" var="adresse">
 				<tr>
-					<td><c:out value="${ adresses.rue}" /></td>
-					<td><c:out value="${ adresses.ville}" /></td>
-					<td><c:out value="${ adresses.pays}" /></td>
-					<td><c:out value="${ adresses.codePostal}" /></td>
+					<td><c:out value="${ adresse.rue}" /></td>
+					<td><c:out value="${ adresse.ville}" /></td>
+					<td><c:out value="${ adresse.pays}" /></td>
+					<td><c:out value="${ adresse.codePostal}" /></td>
 					
 					<td><a
-						  href="<c:url value="/DetailsAdresse"><c:param name="id" value="${ livre.id}" /></c:url>">Voir</a>
+						  href="<c:url value="/DetailsAdresse"><c:param name="id" value="${ adresse.id}" /></c:url>">Voir</a>
 						| <a
-						href="<c:url value="/ModifierAdresse"><c:param name="id" value="${ livre.id}" /></c:url>">Modifier</a>
+						href="<c:url value="/ModifierAdresse"><c:param name="id" value="${ adresse.id}" /></c:url>">Modifier</a>
 						| <a
-						href="<c:url value="/SupprimerAdresse"><c:param name="id" value="${ livre.id}" /></c:url>">Supprimer</a>
+						href="<c:url value="/SupprimerAdresse"><c:param name="id" value="${ adresse.id}" /></c:url>">Supprimer</a>
 					</td>
 				</tr>
 			</c:forEach>

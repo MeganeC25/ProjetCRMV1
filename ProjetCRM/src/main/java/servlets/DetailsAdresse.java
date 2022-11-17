@@ -25,11 +25,10 @@ public class DetailsAdresse extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		String idString = request.getParameter("id");
-		long id = Long.parseLong(idString);
+		long id = Long.parseLong(request.getParameter("id"));
 		
 		try {
-			request.setAttribute("adresses", adresseDao.trouver(id));
+			request.setAttribute("adresse", adresseDao.trouver(id));
 		} catch (DaoException e) {
 			e.printStackTrace();
 		}
