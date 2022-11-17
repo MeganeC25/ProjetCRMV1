@@ -35,6 +35,8 @@ public class ListPaiements extends HttpServlet {
 		}
 		
 		this.getServletContext().getRequestDispatcher("WEB-INF/listPaiements.jsp").forward(request, response);
+		
+		request.getSession().removeAttribute("confirmMessage");
 	}
 }
 	

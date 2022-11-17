@@ -33,6 +33,7 @@ public class SupprimerPaiement extends HttpServlet {
 			long id = Long.parseLong(request.getParameter("id"));
 			paiementDao.supprimer(id);
 			
+			request.getSession().setAttribute("confirmMessage", "Le moyen de paiement a bien été supprimé.");			
 		} catch (DaoException e) {
 			e.printStackTrace();
 		}

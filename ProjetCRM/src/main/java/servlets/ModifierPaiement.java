@@ -1,6 +1,9 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,9 +36,9 @@ public class ModifierPaiement extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		long id = Long.parseLong(request.getParameter("id"));
 		try {
-			request.setAttribute("paiements", paiementDao.trouver(id));
+			long id = Long.parseLong(request.getParameter("id"));
+			request.setAttribute("paiement", paiementDao.trouver(id));
 			request.setAttribute("clients", clientDao.lister());
 		} catch (DaoException e) {
 			e.printStackTrace();
@@ -46,28 +49,75 @@ public class ModifierPaiement extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		Map<String,String> erreurs = new HashMap<String,String>();
+		
 		long id = Long.parseLong(request.getParameter("id"));
-		int numCarte = Integer.parseInt(request.getParameter("numCarte"));
-		int codeConf = Integer.parseInt(request.getParameter("codeConf"));
 		String banque = request.getParameter("banque");
-		long idClient = Long.parseLong(request.getParameter("client"));
 		
-		Paiement paiement= new Paiement();
-		
+		int numCarte = 0;
 		try {
-			paiement = paiementDao.trouver(id);
-			paiement.setNumCarte(numCarte);
-			paiement.setCodeConf(codeConf);
-			paiement.setBanque(banque);
-			
-			Client client = clientDao.trouver(idClient);
-			paiement.setClient(client);
-			
-			paiementDao.miseAJour(paiement);
-		} catch (DaoException e) {
-			e.printStackTrace();
+			numCarte = Integer.parseInt(request.getParameter("numCarte"));
+		} catch(NumberFormatException e) {
+			erreurs.put("numCarte", "Veuillez entrer des caractères numériques.");
 		}
 		
-		response.sendRedirect(request.getContextPath() + "/ListPaiements");		
+		int codeConf = 0;
+		try {
+			codeConf = Integer.parseInt(request.getParameter("codeConf"));
+		} catch(NumberFormatException e) {
+			erreurs.put("codeConf", "Veuillez entrer des caractères numériques.");
+		}
+		
+		if(banque != null) {
+			if(banque.length() < 1 || banque.length() > 255) {
+				erreurs.put("banque", "Le nom de banque doit compris entre 1 et 255 caractères.");
+			}
+		} else {
+			erreurs.put("banque", "Veuillez entrer un nom de banque.");
+		}
+		
+		Client client = null;
+		try {
+			Long idClient = Long.parseLong(request.getParameter("client"));
+			client = clientDao.trouver(idClient);
+		} catch(DaoException | NumberFormatException e) {
+			erreurs.put("clientPaiement", "Erreur: le client n'existe pas.");
+		}
+		
+		
+		Paiement paiement = null;
+		try {
+			paiement = paiementDao.trouver(id);
+		} catch(DaoException e) {
+			paiement = new Paiement();
+			erreurs.put("paiement", "Erreur: le moyen de paiement n'existe pas.");
+		}
+		
+		paiement.setNumCarte(numCarte);
+		paiement.setCodeConf(codeConf);
+		paiement.setBanque(banque);
+		paiement.setClient(client);
+
+		if(erreurs.isEmpty()) {
+			try {
+				paiementDao.miseAJour(paiement);
+				
+				request.getSession().setAttribute("confirmMessage",  "Le moyen de paiement a bien été modifié.");
+			} catch (DaoException e) {
+				e.printStackTrace();
+			}
+			
+			response.sendRedirect(request.getContextPath() + "ListPaiements");
+		} else {
+			try {
+				request.setAttribute("clients", clientDao.lister());
+			} catch(DaoException e) {
+				e.printStackTrace();
+			}
+			request.setAttribute("client", client);
+			request.setAttribute("erreurs", erreurs);
+			
+			this.getServletContext().getRequestDispatcher("/WEB-INF/modifierPaiement.jsp").forward(request, response);
+		}
 	}
 }
