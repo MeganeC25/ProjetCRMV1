@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <div class="menu">
@@ -7,8 +7,8 @@
 	<ul>
 
 		<li><a href="<c:url value="/" />">Accueil</a></li>
-		<li><a href="<c:url value="/ListProduits" />">Produit</a></li>
-		<li><a href="<c:url value="/listPanier" />">Panier</a></li>
+		<li><a href="<c:url value="/listProduits"></c:url>">Produit</a></li>
+		<li><a href="<c:url value="/listPaniers" />">Panier</a></li>
 		<!-- <li><a href="<c:url value="/" />">Mon compte</a></li> -->
 
 	</ul>

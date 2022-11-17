@@ -18,7 +18,7 @@
 		<fieldset>
 			<legend>Ajouter un client</legend>
 
-			<c:import url="/WEB-INF/client_form.jsp" />
+			<c:import url="/WEB-INF/produit_form.jsp" />
 
 		</fieldset>
 
