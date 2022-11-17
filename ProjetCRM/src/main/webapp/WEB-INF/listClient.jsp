@@ -7,8 +7,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Liste clients</title>
-<link type="text/css" rel="stylesheet"
-	href="<c:url value="/inc/style.css" />" />
+       <link type="text/css" rel="stylesheet" href="<c:url value="/inc/style.css" />" />
 </head>
 <body>
 	<c:import url="/WEB-INF/menu.jsp" />
@@ -31,13 +30,15 @@
 				<tr>
 					<td><c:out value="${ client.nom}" /></td>
 					<td><c:out value="${ client.prenom}" /></td>
-					<td><c:out value="${ client.adresse.rue}${ client.adresse.ville}${ client.adresse.pays}${ client.adresse.codePostal}" /></td>
+					<td><c:out
+							value="${ client.adresse.rue}${ client.adresse.ville}${ client.adresse.pays}${ client.adresse.codePostal}" /></td>
 					<td><c:out value="${ client.nomSociete}" /></td>
 					<td><c:out value="${ client.mail}" /></td>
 					<td><c:out value="${ client.telephone}" /></td>
 					<td><c:out value="${ client.etat}" /></td>
 					<td><c:out value="${ client.genre}" /></td>
-					<td><!--<a
+					<td>
+						<!--<a
 						  href="<c:url value="/detailsLivre"><c:param name="id" value="${ livre.id}" /></c:url>">Voir</a>
 						| <a
 						href="<c:url value="/modifierLivre"><c:param name="id" value="${ livre.id}" /></c:url>">Modifier</a>

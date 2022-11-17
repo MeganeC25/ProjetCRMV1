@@ -25,13 +25,17 @@ public class DetailsAdresse extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
+		try {
+			long id = Long.parseLong(request.getParameter("id"));
 		long id = Long.parseLong(request.getParameter("id"));
 		
 		try {
 			request.setAttribute("adresse", adresseDao.trouver(id));
 		} catch (DaoException e) {
 			e.printStackTrace();
-		}
+		} 
 		this.getServletContext().getRequestDispatcher("/WEB-INF/detailsAdresse.jsp").forward(request, response);
 	}
+	
+
 }
