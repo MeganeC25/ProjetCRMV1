@@ -27,6 +27,9 @@ public class DetailsAdresse extends HttpServlet {
 	
 		try {
 			long id = Long.parseLong(request.getParameter("id"));
+		long id = Long.parseLong(request.getParameter("id"));
+		
+		try {
 			request.setAttribute("adresse", adresseDao.trouver(id));
 		} catch (DaoException e) {
 			e.printStackTrace();
