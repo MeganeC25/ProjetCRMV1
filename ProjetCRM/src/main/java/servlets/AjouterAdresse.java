@@ -26,11 +26,6 @@ public class AjouterAdresse extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		try {
-			request.setAttribute("adresses", adresseDao.lister());
-		} catch (DaoException e) {
-			e.printStackTrace();
-		}
 		this.getServletContext().getRequestDispatcher("/WEB-INF/ajouterAdresse.jsp").forward(request, response);
 
 	}
@@ -45,15 +40,13 @@ public class AjouterAdresse extends HttpServlet {
 		
 		
 		try {
-			String idString = request.getParameter("id");
-			long id = Long.parseLong(idString);
 			Adresse adresse = new Adresse (rue, ville, pays, codePostal);
 			adresseDao.creer(adresse);
 		} catch (DaoException e) {
 			e.printStackTrace();
 		}
-		
-		this.getServletContext().getRequestDispatcher("/WEB-INF/ajouterAdresse.jsp").forward(request, response);
+	
+		response.sendRedirect( request.getContextPath() + "/ListAdresses" );
 	}
 
 }

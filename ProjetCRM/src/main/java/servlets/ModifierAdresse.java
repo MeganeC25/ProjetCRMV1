@@ -58,7 +58,7 @@ public class ModifierAdresse extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		this.getServletContext().getRequestDispatcher("/WEB-INF/modifierAdresse.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/ModifierAdresse").forward(request, response);
 	}
 
 }
