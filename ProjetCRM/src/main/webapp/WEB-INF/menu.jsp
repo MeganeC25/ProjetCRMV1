@@ -7,14 +7,9 @@
 	<ul>
 
 		<li><a href="<c:url value="/" />">Accueil</a></li>
-<<<<<<< HEAD
 		<li><a href="<c:url value="/ListProduits" />">Produit</a></li>
-		<li><a href="<c:url value="/listPanier" />">Panier</a></li>
-		<li><a href="<c:url value="/listPaiements" />">Paiements</a></li>
-=======
-		<li><a href="<c:url value="/listProduits"></c:url>">Produit</a></li>
 		<li><a href="<c:url value="/listPaniers" />">Panier</a></li>
->>>>>>> origin/JeanSeb
+		<li><a href="<c:url value="/listPaiements" />">Paiements</a></li>
 		<!-- <li><a href="<c:url value="/" />">Mon compte</a></li> -->
 
 	</ul>
