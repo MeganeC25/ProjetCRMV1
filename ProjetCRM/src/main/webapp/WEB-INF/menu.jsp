@@ -9,6 +9,7 @@
 		<li><a href="<c:url value="/" />">Accueil</a></li>
 		<li><a href="<c:url value="/ListProduits" />">Produit</a></li>
 		<li><a href="<c:url value="/listPanier" />">Panier</a></li>
+		<li><a href="<c:url value="/listPaiements" />">Paiements</a></li>
 		<!-- <li><a href="<c:url value="/" />">Mon compte</a></li> -->
 
 	</ul>
