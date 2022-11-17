@@ -9,7 +9,13 @@
 <link type="text/css" rel="stylesheet" href="<c:url value="/inc/style.css" />" />
 </head>
 <body>
+
+<h1>Bienvenue chez AMAZIN !</h1>
+
 	<c:import url="/WEB-INF/menu.jsp" />
-	<h1>Bienvenue chez AMAZIN !</h1>
+	
+	<div class="view">
+	
+	</div>
 </body>
 </html>

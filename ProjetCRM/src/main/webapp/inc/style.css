@@ -1,1 +1,43 @@
-@charset "ISO-8859-1";
+html, body {
+	height: 100%;
+	overflow: hidden;
+	
+}
+
+body {
+	background-image: url("amazin.jpg");
+	background-size: cover;
+	background-position: center;
+  	background-repeat: no-repeat;
+}
+
+/* VIEW */
+.view {
+	text-align: center;
+}
+.view table {
+	margin: auto;
+	margin-top: 50px;
+	border: solid;
+}
+.view td {
+	padding: 10px;
+	border: solid;
+}
+.view .pair {
+	background-color: white;
+}
+
+.view .impair {
+	background-color: #5CB1AF;
+}
+
+.view button {
+	margin-top: 50px;
+}
+
+.view fieldset {
+	max-width: 800px;
+	margin: auto;
+}
+/* END VIEW */
