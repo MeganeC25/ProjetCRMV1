@@ -10,12 +10,14 @@
 </head>
 <body>
 
-<h1>Bienvenue chez AMAZIN !</h1>
+	<div class="view">
+	<h1>Bienvenue chez AMAZIN !</h1>
+	</div>
 
 	<c:import url="/WEB-INF/menu.jsp" />
 	
-	<div class="view">
 	
-	</div>
+	
+
 </body>
 </html>
