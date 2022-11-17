@@ -23,8 +23,6 @@
 		</fieldset>
 
 		<input type="submit" value="Valider" />
-		<input type="reset"	value="Remettre à zéro" />
-
 	</form>
 
 </body>

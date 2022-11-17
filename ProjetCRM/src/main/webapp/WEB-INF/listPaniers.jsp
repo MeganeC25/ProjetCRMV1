@@ -34,6 +34,7 @@
 						   <a href="<c:url value="/detailsPanier"><c:param name="id" value="${panier.id}" /></c:url>">Voir</a>
 						   <a href="<c:url value="/modifierPanier"><c:param name="id" value="${panier.id}" /></c:url>">Modifier</a>
 						 | <a href="<c:url value="/supprimerPanier"><c:param name="id" value="${panier.id}" /></c:url>">Supprimer</a>
+						 | <a href="<c:url value="/listContients"><c:param name="idpanier" value="${panier.id}" /></c:url>">Contenu</a>
 						</td>
 					</tr>
 				</c:forEach>

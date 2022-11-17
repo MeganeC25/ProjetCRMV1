@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Ajouter Panier</title>
+<title>Ajouter un produit au panier</title>
 <link type="text/css" rel="stylesheet"
 	href="<c:url value="/inc/style.css" />" />
 </head>
@@ -16,14 +16,13 @@
 	<form method="POST" action="<c:url value="/ajouterContient" />">
 
 		<fieldset>
-			<legend>Ajouter un panier <c:out value="${idpanier}" /></legend>
+			<legend>Ajouter un produit au panier <c:out value="${idpanier}" /></legend>
 
 			<c:import url="/WEB-INF/contient_form.jsp" />
 
 		</fieldset>
 
 		<input type="submit" value="Valider" />
-
 	</form>
 
 </body>
