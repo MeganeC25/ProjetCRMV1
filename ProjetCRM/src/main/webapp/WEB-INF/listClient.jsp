@@ -38,12 +38,9 @@
 					<td><c:out value="${ client.etat}" /></td>
 					<td><c:out value="${ client.genre}" /></td>
 					<td>
-						<!--<a
-						  href="<c:url value="/detailsLivre"><c:param name="id" value="${ livre.id}" /></c:url>">Voir</a>
-						| <a
-						href="<c:url value="/modifierLivre"><c:param name="id" value="${ livre.id}" /></c:url>">Modifier</a>
-						| <a
-						href="<c:url value="/supprimerLivre"><c:param name="id" value="${ livre.id}" /></c:url>">Supprimer</a>-->
+					<a	href="<c:url value="/DetailsClient"><c:param name="id" value="${ client.id}" /></c:url>">Voir</a>
+					<a	href="<c:url value="/ModifierClient"><c:param name="id" value="${ client.id}" /></c:url>">Modifier</a>
+					<a	href="<c:url value="/SupprimerClient"><c:param name="id" value="${ client.id}" /></c:url>">Supprimer</a>-->
 					</td>
 				</tr>
 			</c:forEach>
