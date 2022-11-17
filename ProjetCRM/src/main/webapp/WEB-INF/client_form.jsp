@@ -4,26 +4,44 @@
     
 	
 
-<label for="idAdresse">Adresse : </label>
-<select id="idAdresse" name="idAdresse">
-	<c:forEach items="${ adresse }" var="adresse">
-		<option value="${ adresse.id}" ${ adresse.id == client.adresse.id ? "selected" : "" }><c:out value="${ adresse.rue}" /> <c:out value="${ adresse.ville}"/> <c:out value="${ adresse.codePostal}"/><c:out value="${ adresse.pays}"/></option>
+<label for="idClient">Client : </label>
+<select id="idClient" name="idClient">
+	<c:forEach items="${ client }" var="client">
+		<option value="${ client.id}" ${ adresse.id == client.adresse.id ? "selected" : "" }><c:out value="${ client.nom}" /> <c:out value="${ client.prenom}"/> 
+		<c:out value="${ client.mail}"/><c:out value="${ client.nomSociete}"/><c:out value="${ client.telephone}" /><c:out value="${ client.adresse.id}" />
+		<c:out value="${ client.genre}" /><c:out value="${ client.etat}" /></option>
 	</c:forEach>
 </select>
 <br/>
 
-<label for="rueAdresse">Rue : </label>
-<input id="rueAdresse" name="rueAdresse" type="text" value="<c:out value="${ adresse.rue }" />" />
+<label for="nomClient">Nom : </label>
+<input id="nomClient" name="nomClient" type="text" value="<c:out value="${ client.nom }" />" />
 <br/>
 
-<label for="villeAdresse">Ville : </label>
-<input id="villeAdresse" name="villeAdresse" type="text" value="<c:out value="${ adresse.ville }" />" />
+<label for="prenomClient">Prenom : </label>
+<input id="prenomClient" name="prenomClient" type="text" value="<c:out value="${ client.prenom }" />" />
 <br/>
 
-<label for="codePostalAdresse">Code postal : </label>
-<input id="codePostalAdresse" name="codePostalAdresse" type="number" value="<c:out value="${ adresse.codePostal }" />" />
+<label for="mailClient">Mail : </label>
+<input id="mailClient" name="mailClient" type="text" value="<c:out value="${ client.mail }" />" />
 <br/>
 
-<label for="paysAdresse">Pays : </label>
-<input id="paysAdresse" name="paysAdresse" type="text" value="<c:out value="${ adresse.pays }" />" />
+<label for="nomSocieteClient">Nom de Societe : </label>
+<input id="nomSocieteClient" name="nomSocieteClient" type="text" value="<c:out value="${ nomSociete.nom }" />" />
+<br/>
+
+<label for="telephoneClient">Telephone : </label>
+<input id="telephoneClient" name="telephoneClient" type="number" value="<c:out value="${ telephone.nom }" />" />
+<br/>
+
+<label for="adresseClient">Adresse : </label>
+<input id="adresseClient" name="adresseClient" type="text" value="<c:out value="${ client.adresse.id }" />" />
+<br/>
+
+<label for="genreClient">Genre : </label>
+<input id="genreClient" name="genreClient" type="number" value="<c:out value="${ client.genre }" />" />
+<br/>
+
+<label for="etatClient">Etat : </label>
+<input id="etatClient" name="etatClient" type="number" value="<c:out value="${ client.etat }" />" />
 <br/>
