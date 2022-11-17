@@ -21,7 +21,7 @@
 	</a>
 	
 	<div>
-		<table class="table_list">
+		<table>
 			<thead>
 				<tr>
 					<th>Nom du produit</th>

@@ -17,7 +17,7 @@
 	<a href="<c:url value="/ajouterProduit" />"><button>Ajouter un produit</button></a>
 	
 	<div>
-		<table class="table_list">
+		<table>
 			<thead>
 				<tr>
 					<th>Nom</th>

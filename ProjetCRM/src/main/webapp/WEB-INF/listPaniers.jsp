@@ -15,7 +15,7 @@
 	<a href="<c:url value="/ajouterPanier" />"><button>Ajouter un panier</button></a>
 	
 	<div>
-		<table class="table_list">
+		<table>
 			<thead>
 				<tr>
 					<th>Id Panier</th>
